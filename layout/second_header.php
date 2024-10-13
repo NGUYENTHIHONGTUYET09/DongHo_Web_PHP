@@ -1,13 +1,4 @@
 <?php
-function connect() {
-    $conn = mysqli_connect('localhost', 'root', '280704', 'qlbh');
-    if (!$conn) {
-        die('Kết nối thất bại: ' . mysqli_connect_error());
-    }
-    mysqli_set_charset($conn, 'utf8');
-    return $conn;
-}
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -16,7 +7,10 @@ $_SESSION['rights'] = "default";
 $_SESSION['limit'] = 8;
 
 // Kết nối cơ sở dữ liệu
-$conn = connect(); // Gọi hàm connect() ở đây
+$conn = mysqli_connect('localhost', 'root', '280704', 'qlbh') or die('Không thể kết nối!');
+mysqli_set_charset($conn, 'utf8');
+
+// Khởi tạo và thực hiện truy vấn
 $_SESSION['sql'] = "SELECT * FROM sanpham";
 $sql = "SELECT * FROM sanpham";
 $result = mysqli_query($conn, $sql);
@@ -63,3 +57,38 @@ if (isset($_SESSION['user'])) {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> 9XWatch - Thể hiện sự lịch lãm của phái mạnh! </title>
+    <meta charset="utf-8">
+    <!-- <link rel="SHORTCUT ICON"  href=> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="libs/script/script.js"></script>
+    <link rel="stylesheet" href="libs/css/style.css">
+
+    <!-- File css -> file js -> file jquery -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+    <script src="libs/jquery/jquery-latest.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- font used in this site -->
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.php"><img src="images/logo.png">
+            <h2 class="logo">
+                <div class="">9XWatch</div>
+            </h2>
+        </a>
+        <div class="header-detail">
+            <p>113 Hoàng Sa, Đa Kao, Tân Bình, Hồ Chí Minh, Việt Nam<br>
+                <i>8h - 22h Hằng ngày, kể cả Ngày lễ và Chủ nhật</i>
+            </p>
+        </div>
+    </header>

@@ -1,7 +1,7 @@
 <?php 
 $conn;
 function connect(){
-	$conn = mysqli_connect('localhost','root','','qlbh') or die('Không thể kết nối!');
+	$conn = mysqli_connect('localhost','root','280704','qlbh') or die('Không thể kết nối!');
 	/*$conn = mysqli_connect("localhost","k2739nvdu_qlbh","cuchuoi258","k2739nvdu_qlbh") or die('Không thể kết nối!');*/
 	return $conn;
 }
@@ -41,22 +41,30 @@ function load_more(){
 	$i = $st;
 	while ($row = mysqli_fetch_assoc($result)){
 		?>
-		<tr>
-			<td><?php echo ++$i ?></td> <td><?php echo $row['tensp'] ?></td>
-			<td><?php echo $row['gia'] ?></td> <td><?php echo $row['baohanh'] ?></td>
-			<td><?php echo $row['trongluong'] ?></td> <td><?php echo $row['chatlieu'] ?></td>
-			<td><?php echo $row['chongnuoc'] ?></td> <td><?php echo $row['nangluong'] ?></td>
-			<td><?php echo $row['loaibh'] ?></td> <td><?php echo $row['kichthuoc'] ?></td>
-			<td><?php echo $row['mau'] ?></td> <td><?php echo $row['danhcho'] ?></td>
-			<td><?php echo $row['phukien'] ?></td> <td><?php echo $row['khuyenmai'] ?></td>
-			<td><?php echo $row['tinhtrang'] ?></td> <td><?php echo $row['tendm'] ?></td>
-			<td><img src="../<?php echo $row['anhchinh'] ?>"></td>
-			<td><?php echo $row['ngay_nhap'] ?></td>
-			<td><span class="btn btn-warning" onclick="display_edit_sanpham('<?php echo $row['masp'] ?>')">Sửa</span></td>
-			<td><span class="btn btn-danger" onclick="xoa_sp('<?php echo $row['masp'] ?>')">Xóa</span></td>
-		</tr>
+<tr>
+    <td><?php echo ++$i ?></td>
+    <td><?php echo $row['tensp'] ?></td>
+    <td><?php echo $row['gia'] ?></td>
+    <td><?php echo $row['baohanh'] ?></td>
+    <td><?php echo $row['trongluong'] ?></td>
+    <td><?php echo $row['chatlieu'] ?></td>
+    <td><?php echo $row['chongnuoc'] ?></td>
+    <td><?php echo $row['nangluong'] ?></td>
+    <td><?php echo $row['loaibh'] ?></td>
+    <td><?php echo $row['kichthuoc'] ?></td>
+    <td><?php echo $row['mau'] ?></td>
+    <td><?php echo $row['danhcho'] ?></td>
+    <td><?php echo $row['phukien'] ?></td>
+    <td><?php echo $row['khuyenmai'] ?></td>
+    <td><?php echo $row['tinhtrang'] ?></td>
+    <td><?php echo $row['tendm'] ?></td>
+    <td><img src="../<?php echo $row['anhchinh'] ?>"></td>
+    <td><?php echo $row['ngay_nhap'] ?></td>
+    <td><span class="btn btn-warning" onclick="display_edit_sanpham('<?php echo $row['masp'] ?>')">Sửa</span></td>
+    <td><span class="btn btn-danger" onclick="xoa_sp('<?php echo $row['masp'] ?>')">Xóa</span></td>
+</tr>
 
-		<?php
+<?php
 	}
 }
 function load_more_gd(){
@@ -92,28 +100,31 @@ function load_more_gd(){
 	$i = $st;
 	while ($row = mysqli_fetch_assoc($result)){
 		?>
-		<tr>
-			<td><?php echo ++$i ?></td>
-			<td>
-				<?php 
+<tr>
+    <td><?php echo ++$i ?></td>
+    <td>
+        <?php 
 				if($row['tinhtrang'] == 0){
 					echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";
 				} else {
 					echo "<h4 class='label label-success'>Đã giao hàng</h4>";
 				} 
 				?>
-			</td>
-			<td><?php echo $row['user_name'] ?></td> <td><?php echo $row['user_dst'] ?></td>
-			<td><?php echo $row['user_addr'] ?></td> <td><?php echo $row['user_phone'] ?></td>
-			<td><?php echo $row['tongtien'] ?></td> <td><?php echo $row['date'] ?></td>
-			<td>
-				<?php if($row['tinhtrang'] == '0'){ ?>
-				<span class="btn btn-success" onclick="xong('<?php echo $row['magd'] ?>')">Xong</span>
-				<?php } ?>
-			</td>
-		</tr>
+    </td>
+    <td><?php echo $row['user_name'] ?></td>
+    <td><?php echo $row['user_dst'] ?></td>
+    <td><?php echo $row['user_addr'] ?></td>
+    <td><?php echo $row['user_phone'] ?></td>
+    <td><?php echo $row['tongtien'] ?></td>
+    <td><?php echo $row['date'] ?></td>
+    <td>
+        <?php if($row['tinhtrang'] == '0'){ ?>
+        <span class="btn btn-success" onclick="xong('<?php echo $row['magd'] ?>')">Xong</span>
+        <?php } ?>
+    </td>
+</tr>
 
-		<?php
+<?php
 	}
 }
 
@@ -228,31 +239,41 @@ function giaodich_chuagh(){
 	$i = 1;
 	$result = mysqli_query($conn, $sql); ?>
 
-	<thead>
-		<tr>
-			<th>STT</th> <th>Tình trạng</th> <th>Tên</th>
-			<th>Quận</th> <th>Địa chỉ</th> <th>Số DT</th>
-			<th>Tổng tiền</th> <th>Ngày</th> <th>isDone</th>
-		</tr>
-	</thead>
-	<tbody id="gd_chuagd_body">
+<thead>
+    <tr>
+        <th>STT</th>
+        <th>Tình trạng</th>
+        <th>Tên</th>
+        <th>Quận</th>
+        <th>Địa chỉ</th>
+        <th>Số DT</th>
+        <th>Tổng tiền</th>
+        <th>Ngày</th>
+        <th>isDone</th>
+    </tr>
+</thead>
+<tbody id="gd_chuagd_body">
 
-		<?php while ($row = mysqli_fetch_assoc($result)){?>
+    <?php while ($row = mysqli_fetch_assoc($result)){?>
 
 
-		<tr>
-			<td><?php echo $i++ ?></td>
-			<td><?php if($row['tinhtrang']) echo "<h4 class='label label-success'>Đã giao hàng</h4>"; else echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";  ?></td>
-			<td><?php echo $row['user_name'] ?></td> <td><?php echo $row['user_dst'] ?></td>
-			<td><?php echo $row['user_addr'] ?></td> <td><?php echo $row['user_phone'] ?></td>
-			<td><?php echo $row['tongtien'] ?></td> <td><?php echo $row['date'] ?></td>
-			<td><span class="btn btn-success" onclick="xong('<?php echo $row['magd'] ?>')">Xong</span></td>
-		</tr>
+    <tr>
+        <td><?php echo $i++ ?></td>
+        <td><?php if($row['tinhtrang']) echo "<h4 class='label label-success'>Đã giao hàng</h4>"; else echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";  ?>
+        </td>
+        <td><?php echo $row['user_name'] ?></td>
+        <td><?php echo $row['user_dst'] ?></td>
+        <td><?php echo $row['user_addr'] ?></td>
+        <td><?php echo $row['user_phone'] ?></td>
+        <td><?php echo $row['tongtien'] ?></td>
+        <td><?php echo $row['date'] ?></td>
+        <td><span class="btn btn-success" onclick="xong('<?php echo $row['magd'] ?>')">Xong</span></td>
+    </tr>
 
-		<?php }	?>
-	</tbody>
+    <?php }	?>
+</tbody>
 
-	<?php
+<?php
 	disconnect($conn);
 }
 function giaodich_dagh(){
@@ -263,31 +284,41 @@ function giaodich_dagh(){
 	$i = 1;
 	$result = mysqli_query($conn, $sql); ?>
 
-	<thead>
-		<tr>
-			<th>STT</th> <th>Tình trạng</th> <th>Tên</th>
-			<th>Quận</th> <th>Địa chỉ</th> <th>Số DT</th>
-			<th>Tổng tiền</th> <th>Ngày</th> <th>isDone</th>
-		</tr>
-	</thead>
-	<tbody id="gd_dagd_body">
+<thead>
+    <tr>
+        <th>STT</th>
+        <th>Tình trạng</th>
+        <th>Tên</th>
+        <th>Quận</th>
+        <th>Địa chỉ</th>
+        <th>Số DT</th>
+        <th>Tổng tiền</th>
+        <th>Ngày</th>
+        <th>isDone</th>
+    </tr>
+</thead>
+<tbody id="gd_dagd_body">
 
-		<?php while ($row = mysqli_fetch_assoc($result)){?>
+    <?php while ($row = mysqli_fetch_assoc($result)){?>
 
 
-		<tr>
-			<td><?php echo $i++ ?></td>
-			<td><?php if($row['tinhtrang']) echo "<h4 class='label label-success'>Đã giao hàng</h4>"; else echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";  ?></td>
-			<td><?php echo $row['user_name'] ?></td> <td><?php echo $row['user_dst'] ?></td>
-			<td><?php echo $row['user_addr'] ?></td> <td><?php echo $row['user_phone'] ?></td>
-			<td><?php echo $row['tongtien'] ?></td> <td><?php echo $row['date'] ?></td>
-			<td></td>
-		</tr>
+    <tr>
+        <td><?php echo $i++ ?></td>
+        <td><?php if($row['tinhtrang']) echo "<h4 class='label label-success'>Đã giao hàng</h4>"; else echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";  ?>
+        </td>
+        <td><?php echo $row['user_name'] ?></td>
+        <td><?php echo $row['user_dst'] ?></td>
+        <td><?php echo $row['user_addr'] ?></td>
+        <td><?php echo $row['user_phone'] ?></td>
+        <td><?php echo $row['tongtien'] ?></td>
+        <td><?php echo $row['date'] ?></td>
+        <td></td>
+    </tr>
 
-		<?php }	?>
-	</tbody>
+    <?php }	?>
+</tbody>
 
-	<?php
+<?php
 	disconnect($conn);
 }
 function giaodich_tatcagh(){
@@ -298,35 +329,45 @@ function giaodich_tatcagh(){
 	$i = 1;
 	$result = mysqli_query($conn, $sql); ?>
 
-	<thead>
-		<tr>
-			<th>STT</th> <th>Tình trạng</th> <th>Tên</th>
-			<th>Quận</th> <th>Địa chỉ</th> <th>Số DT</th>
-			<th>Tổng tiền</th> <th>Ngày</th> <th>isDone</th>
-		</tr>
-	</thead>
-	<tbody id="gd_tatcagd_body">
+<thead>
+    <tr>
+        <th>STT</th>
+        <th>Tình trạng</th>
+        <th>Tên</th>
+        <th>Quận</th>
+        <th>Địa chỉ</th>
+        <th>Số DT</th>
+        <th>Tổng tiền</th>
+        <th>Ngày</th>
+        <th>isDone</th>
+    </tr>
+</thead>
+<tbody id="gd_tatcagd_body">
 
-		<?php while ($row = mysqli_fetch_assoc($result)){?>
+    <?php while ($row = mysqli_fetch_assoc($result)){?>
 
 
-		<tr>
-			<td><?php echo $i++ ?></td>
-			<td><?php if($row['tinhtrang']) echo "<h4 class='label label-success'>Đã giao hàng</h4>"; else echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";  ?></td>
-			<td><?php echo $row['user_name'] ?></td> <td><?php echo $row['user_dst'] ?></td>
-			<td><?php echo $row['user_addr'] ?></td> <td><?php echo $row['user_phone'] ?></td>
-			<td><?php echo $row['tongtien'] ?></td> <td><?php echo $row['date'] ?></td>
-			<td>
-				<?php if($row['tinhtrang'] == '0'){ ?>
-				<span class="btn btn-success" onclick="xong('<?php echo $row['magd'] ?>')">Xong</span>
-				<?php } ?>
-			</td>
-		</tr>
+    <tr>
+        <td><?php echo $i++ ?></td>
+        <td><?php if($row['tinhtrang']) echo "<h4 class='label label-success'>Đã giao hàng</h4>"; else echo "<h4 class='label label-danger'>Chưa giao hàng</h4>";  ?>
+        </td>
+        <td><?php echo $row['user_name'] ?></td>
+        <td><?php echo $row['user_dst'] ?></td>
+        <td><?php echo $row['user_addr'] ?></td>
+        <td><?php echo $row['user_phone'] ?></td>
+        <td><?php echo $row['tongtien'] ?></td>
+        <td><?php echo $row['date'] ?></td>
+        <td>
+            <?php if($row['tinhtrang'] == '0'){ ?>
+            <span class="btn btn-success" onclick="xong('<?php echo $row['magd'] ?>')">Xong</span>
+            <?php } ?>
+        </td>
+    </tr>
 
-		<?php }	?>
-	</tbody>
+    <?php }	?>
+</tbody>
 
-	<?php
+<?php
 	disconnect($conn);
 }
 function giaodich_xong(){
