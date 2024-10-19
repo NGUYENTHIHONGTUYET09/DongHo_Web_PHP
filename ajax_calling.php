@@ -163,6 +163,8 @@ function php_saling() {
 }
 
 
+
+
 function php_new() {
     session_start();
     $conn = connect();
@@ -445,7 +447,11 @@ function php_giohang() {
                     $sql = "SELECT * FROM sanpham WHERE masp IN $x";
                     $result = mysqli_query($conn, $sql);
                     
-                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                    // Kiểm tra kết quả truy vấn
+                    if (!$result) {
+                        echo "Lỗi truy vấn: " . mysqli_error($conn);
+                    } else {
+                        while ($row = mysqli_fetch_assoc($result)) { ?>
             <a data-toggle='modal' href="sanpham.php?masp=<?php echo $row['masp'] ?>" data-target='#modal-id'>
                 <div class='prd-in-cart' onclick="hien_sanpham('<?php echo $row['masp'] ?>')">
                     <img src="<?php echo $row['anhchinh'] ?>">
@@ -456,6 +462,7 @@ function php_giohang() {
                 </div>
             </a>
             <?php }
+                    }
                     ?>
 
             <a href="order.php?q=multi" class="btn btn-success btn-block"
@@ -477,7 +484,11 @@ function php_giohang() {
             $sql = "SELECT * FROM sanpham WHERE masp IN $in";
             $result = mysqli_query($conn, $sql);
 
-            while ($row = mysqli_fetch_assoc($result)) { ?>
+            // Kiểm tra kết quả truy vấn
+            if (!$result) {
+                echo "Lỗi truy vấn: " . mysqli_error($conn);
+            } else {
+                while ($row = mysqli_fetch_assoc($result)) { ?>
 <a data-toggle='modal' href="sanpham.php?masp=<?php echo $row['masp'] ?>" data-target='#modal-id'>
     <div class='prd-in-cart' onclick="hien_sanpham('<?php echo $row['masp'] ?>')">
         <img src="<?php echo $row['anhchinh'] ?>">
@@ -488,6 +499,7 @@ function php_giohang() {
     </div>
 </a>
 <?php }
+            }
             ?>
 <a href="order.php?q=multi" class="btn btn-success btn-block"
     style="color: white; font-size: 27px; margin-bottom: 10px;">Đặt Hàng</a>
@@ -501,6 +513,7 @@ function php_giohang() {
         }
     }
 }
+
 
 
 

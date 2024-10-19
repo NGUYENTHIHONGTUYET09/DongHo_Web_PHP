@@ -38,7 +38,10 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="row">
             <div class="col-sm-12">
                 <div class="main-prd">
+                    <!-- Hình ảnh chính -->
                     <img src="<?php echo htmlspecialchars($row['anhchinh']); ?>" class="main-prd-img">
+                    <!-- Hình ảnh phụ -->
+                    <img src="<?php echo htmlspecialchars($row['anhphu']); ?>" class="main-prd-img" style="margin-top: 10px;"> <!-- Thêm khoảng cách nếu cần -->
                     <div class="basic-info">
                         <h2><?php echo htmlspecialchars($row['tensp']); ?></h2>
                         <span class="main-prd-price"><?php echo number_format($row['gia'], 0, ',', '.'); ?> VND</span>
