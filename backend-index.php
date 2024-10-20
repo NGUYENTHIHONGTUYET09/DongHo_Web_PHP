@@ -483,39 +483,64 @@ function signup() {
     }
 }
 
-function addtocart_action(){
-	session_start();
-	$masp = "";
-	if(isset($_POST['masp'])){
-		$masp = $_POST['masp'];
-	}	
-	$pos = $cart_name = "";
-	if($_SESSION['rights'] == "default"){
-		$cart_name = "client_cart";
-	} else {
-		$cart_name = "user_cart";
-	}
-	$pos = array_search($masp, $_SESSION[$cart_name]);
-	if($pos != ""){
-		unset($_SESSION[$cart_name][$pos]);
-		echo count($_SESSION[$cart_name])-1;
-	} else {
-		$_SESSION[$cart_name][] = $masp;
-		echo count($_SESSION[$cart_name])-1;
-	}
-	
-	if($_SESSION['rights'] == "user"){
-		$conn = connect();
-		$sql = "";
-		if($pos != ""){
-			$sql = "DELETE FROM giohang WHERE user_id = '".$_SESSION['user']['id']."' AND masp = '".$masp."'"; 
-		} else {
-			$sql = "INSERT INTO giohang VALUES ('".$_SESSION['user']['id']."','".$masp."','1')";
-		}
-		$result = mysqli_query($conn, $sql);
-		if(!$result){echo "Loi them gio hang";}
-	}
+function addtocart_action() {
+    session_start();
+    $masp = "";
+
+    // Kiểm tra nếu POST có chứa mã sản phẩm
+    if (isset($_POST['masp'])) {
+        $masp = $_POST['masp'];
+    }
+
+    $cart_name = "";
+
+    // Xác định giỏ hàng tùy thuộc vào quyền hạn của người dùng
+    if ($_SESSION['rights'] == "default") {
+        $cart_name = "client_cart";
+    } else {
+        $cart_name = "user_cart";
+    }
+
+    // Kiểm tra xem giỏ hàng có tồn tại không, nếu chưa có thì khởi tạo mảng trống
+    if (!isset($_SESSION[$cart_name])) {
+        $_SESSION[$cart_name] = array();  // Tạo một mảng trống nếu giỏ hàng chưa tồn tại
+    }
+
+    // Tìm kiếm sản phẩm trong giỏ hàng
+    $pos = array_search($masp, $_SESSION[$cart_name]);
+
+    // Nếu sản phẩm đã có trong giỏ hàng, xóa sản phẩm khỏi giỏ hàng
+    if ($pos !== false) {
+        unset($_SESSION[$cart_name][$pos]);
+        echo count($_SESSION[$cart_name]) - 1;
+    } else {
+        // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm vào giỏ
+        $_SESSION[$cart_name][] = $masp;
+        echo count($_SESSION[$cart_name]) - 1;
+    }
+
+    // Nếu người dùng có quyền "user", cập nhật giỏ hàng vào cơ sở dữ liệu
+    if ($_SESSION['rights'] == "user") {
+        $conn = connect();
+        $sql = "";
+
+        // Nếu sản phẩm đã có trong giỏ, xóa sản phẩm khỏi giỏ hàng trong cơ sở dữ liệu
+        if ($pos !== false) {
+            $sql = "DELETE FROM giohang WHERE user_id = '".$_SESSION['user']['id']."' AND masp = '".$masp."'";
+        } else {
+            // Nếu sản phẩm chưa có trong giỏ, thêm sản phẩm vào cơ sở dữ liệu
+            $sql = "INSERT INTO giohang VALUES ('".$_SESSION['user']['id']."','".$masp."','1')";
+        }
+
+        $result = mysqli_query($conn, $sql);
+
+        // Kiểm tra nếu truy vấn thất bại
+        if (!$result) {
+            echo "Lỗi thêm vào giỏ hàng";
+        }
+    }
 }
+
 function hien_sanpham($m){
 	$_GET['masp'] = $m;
 	require_once 'sanpham.php';

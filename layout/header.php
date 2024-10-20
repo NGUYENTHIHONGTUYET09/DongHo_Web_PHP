@@ -104,8 +104,8 @@ if (isset($_SESSION['user'])) {
 
 <body>
     <header id='header'>
-        <a href="index.php"><img src="images/header.png">
-            <h2 class="logo">Clothes</h2>
+        <a href="index.php"><img src="images/logo5.jpg">
+            <h2 class="logo"> 💎Fashion Katy </h2>
         </a>
         <ul class="header-menu">
             <?php 
