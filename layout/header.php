@@ -170,12 +170,12 @@ if (isset($_SESSION['user'])) {
                                 class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a onclick="ajax_danhmucsp('all')">Tất cả sản phẩm</a></li>
-                            <li><a onclick="ajax_danhmucsp('rolex')">Rolex (Thụy Sĩ)</a></li>
-                            <li><a onclick="ajax_danhmucsp('cartier')">Cartier (Pháp)</a></li>
-                            <li><a onclick="ajax_danhmucsp('omega')">Omega (Thụy Sĩ)</a></li>
-                            <li><a onclick="ajax_danhmucsp('patek')">Patek Philippe (Thụy Sĩ)</a></li>
-                            <li><a onclick="ajax_danhmucsp('piaget')">Piaget (Thụy Sĩ)</a></li>
-                            <li><a onclick="ajax_danhmucsp('montblanc')">Montblanc (Đức)</a></li>
+                            <li><a onclick="ajax_danhmucsp('ao_khoac')">Áo Khoác</a></li>
+                            <li><a onclick="ajax_danhmucsp('ao_thun')">Áo Thun / T-Shirt</a></li>
+                            <li><a onclick="ajax_danhmucsp('aosomi')">Áo Sơ Mi</a></li>
+                            <li><a onclick="ajax_danhmucsp('quan')">Quần</a></li>
+                            <li><a onclick="ajax_danhmucsp('dam')">Đầm / Váy</a></li>
+                            <li><a onclick="ajax_danhmucsp('phukien')">Giày / Phụ kiện</a></li>
                         </ul>
                     </li>
                     <li class="menu-name" id="dgg"><a onclick="ajax_saling()">Đang giảm giá</a></li>

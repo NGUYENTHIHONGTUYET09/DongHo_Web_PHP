@@ -362,23 +362,23 @@ function php_danhmucsp() {
         case 'all':
             $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm ORDER BY sp.gia ASC";
             break;
-        case 'rolex':
-            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'rolex' ORDER BY sp.gia ASC";
+        case 'ao_khoac':
+            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'ao_khoac' ORDER BY sp.gia ASC";
             break;
-        case 'cartier':
-            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'cartier' ORDER BY sp.gia ASC";
+        case 'ao_thun':
+            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'ao_thun' ORDER BY sp.gia ASC";
             break;
-        case 'omega':
-            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'omega' ORDER BY sp.gia ASC";
+        case 'aosomi':
+            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'aosomi' ORDER BY sp.gia ASC";
             break;
-        case 'patek':
-            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'patek philippe' ORDER BY sp.gia ASC";
+        case 'quan':
+            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'quan' ORDER BY sp.gia ASC";
             break;
-        case 'piaget':
-            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'piaget' ORDER BY sp.gia ASC";
+        case 'dam':
+            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'dam' ORDER BY sp.gia ASC";
             break;
-        case 'montblanc':
-            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'montblanc' ORDER BY sp.gia ASC";
+        case 'phukien':
+            $sql = "SELECT * FROM sanpham sp, danhmucsp dm WHERE sp.madm = dm.madm AND dm.tendm = 'phukien' ORDER BY sp.gia ASC";
             break;
         default:
             echo "<p>Danh mục không hợp lệ.</p>";

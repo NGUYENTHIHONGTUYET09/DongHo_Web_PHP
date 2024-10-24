@@ -1,5 +1,5 @@
 -- Tạo cơ sở dữ liệu
-CREATE DATABASE IF NOT EXISTS qlbh;
+-- CREATE DATABASE IF NOT EXISTS qlbh;
 
 -- Sử dụng cơ sở dữ liệu vừa tạo
 USE qlbh;
@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS danhmucsp (
 CREATE TABLE IF NOT EXISTS sanpham (
     masp INT AUTO_INCREMENT PRIMARY KEY,
     tensp VARCHAR(255) NOT NULL,
+    masp VARCHAR(255) NOT NULL,
     gia DECIMAL(10, 2) NOT NULL,
     baohanh VARCHAR(100),
     trongluong VARCHAR(100),
@@ -102,25 +103,49 @@ INSERT INTO danhmucsp (tendm, xuatsu) VALUES
 ('Đồng hồ nữ', 'Đức');
 
 -- Thêm dữ liệu mẫu cho bảng sản phẩm
-INSERT INTO sanpham (tensp, gia, baohanh, trongluong, chatlieu, chongnuoc, nangluong, loaibh, kichthuoc, mau, danhcho, phukien, khuyenmai, tinhtrang, madm, anhchinh) VALUES
-('Rolex-Datejust-179174-0031', 25000000.00, '2 năm', '150g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Đen', 'Nam', 'Hộp quà', 'Giảm 10%', 'Mới', 1, 'images/rolex/Rolex-Datejust-179174-0031.png'),
-('Rolex-Datejust-179174-0094', 25000000.00, '2 năm', '150g', 'Thép không gỉ', '30m', 'Cơ', 'Nữ', '40mm', 'Đen', 'Nữ', 'Hộp quà', 'Giảm 10%', 'Mới', 1, 'images/rolex/Rolex-Datejust-179174-0094.png'),
-('Piaget z3', 1500000.00, '2 năm', '70g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Trắng', 'Nữ', 'Hộp quà', 'Giảm 10%', 'Mới', 2, 'images/rolex/Piaget-z3.png'),
-('Casio MTP-V002D-1B3', 1000000.00, '1 năm', '120g', 'Thép không gỉ', '50m', 'Pin', 'Nam', '38mm', 'Bạc', 'Nam', 'Hộp quà', 'Giảm 5%', 'Mới', 3, 'images/rolex/Casio-MTP-V002D-1B3.png'),
-('Seiko 5 Automatic', 2000000.00, '2 năm', '130g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Xanh', 'Nam', 'Hộp quà', 'Giảm 15%', 'Mới', 4, 'images/rolex/Seiko-5-Automatic.png');
+DELETE FROM sanpham; -- để làm lại sản phẩm
 
-INSERT INTO sanpham (tensp, gia, baohanh, trongluong, chatlieu, chongnuoc, nangluong, loaibh, kichthuoc, mau, danhcho, phukien, khuyenmai, tinhtrang, madm, anhchinh) VALUES
-('Rolex-Datejust-179174-0031', 25000000.00, '2 năm', '150g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Đen', 'Nam', 'Hộp quà', 'Giảm 10%', 'Mới', 1, 'images/rolex/Rolex-Datejust-179174-0031.png'),
-('Rolex-Datejust-179174-0094', 25000000.00, '2 năm', '150g', 'Thép không gỉ', '30m', 'Cơ', 'Nữ', '40mm', 'Đen', 'Nữ', 'Hộp quà', 'Giảm 10%', 'Mới', 1, 'images/rolex/Rolex-Datejust-179174-0094.png'),
-('Piaget z3', 1500000.00, '2 năm', '70g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Trắng', 'Nữ', 'Hộp quà', 'Giảm 10%', 'Mới', 2, 'images/rolex/Piaget-z3.png'),
-('Casio MTP-V002D-1B3', 1000000.00, '1 năm', '120g', 'Thép không gỉ', '50m', 'Pin', 'Nam', '38mm', 'Bạc', 'Nam', 'Hộp quà', 'Giảm 5%', 'Mới', 3, 'images/rolex/Casio-MTP-V002D-1B3.png'),
-('Seiko 5 Automatic', 2000000.00, '2 năm', '130g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Xanh', 'Nam', 'Hộp quà', 'Giảm 15%', 'Mới', 4, 'images/rolex/Seiko-5-Automatic.png'),
-('Piaget z2', 10000000.00, '1 năm', '50g', 'Nhựa', 'Chống nước', 'Pin', 'Nam/Nữ', '44mm', 'Đen', 'Nam/Nữ', 'Cáp sạc', 'Giảm 15%', 'Mới', 3, 'images/piaget/piaget z2.png'),
-('Piaget z1', 3000000.00, '1 năm', '200g', 'Thép không gỉ', '50m', 'Cơ', 'Nam', '42mm', 'Bạc', 'Nam', 'Hộp quà', 'Giảm 20%', 'Mới', 1, 'images/piaget/piaget z1.png'),
-('Omega CO', 800000.00, '1 năm', '100g', 'Nhựa', '30m', 'Pin', 'Nam', '40mm', 'Xanh', 'Nam', 'Hộp quà', 'Giảm 5%', 'Mới', 5, 'images/omega/Omega CO.png'),
-('Omega 307', 4000000.00, '1 năm', '120g', 'Thép không gỉ', '50m', 'Pin', 'Nữ', '38mm', 'Hồng', 'Nữ', 'Cáp sạc', 'Giảm 15%', 'Mới', 6, 'images/omega/Omega 307.png'),
-('Montblanc 1', 3500000.00, '1 năm', '150g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Nâu', 'Nam', 'Hộp quà', 'Giảm 10%', 'Mới', 1, 'images/montblanc/montblanc 1.png'),
-('Montblanc 2', 3500000.00, '1 năm', '150g', 'Thép không gỉ', '30m', 'Cơ', 'Nam', '40mm', 'Nâu', 'Nam', 'Hộp quà', 'Giảm 10%', 'Mới', 1, 'images/montblanc/montblanc 2.png');
+
+--- update thử cps masp
+ALTER TABLE sanpham ADD masp INT;
+
+
+INSERT INTO sanpham (tensp, gia, baohanh, trongluong, chatlieu, chongnuoc, nangluong, loaibh, kichthuoc, mau, danhcho, phukien, khuyenmai, tinhtrang, madm, anhchinh, masp) VALUES
+('Áo Khoác Denim', 600000.00, '6 tháng', '300g', 'Denim', 'Không', 'N/A', 'Nam', 'M', 'Xanh', 'Nam', 'Nón', 'Giảm 10%', 'Mới', 1, 'images/clothes/ao_khoac_denim.jpg', 1),
+('Áo Thun Cổ Tròn', 250000.00, '1 năm', '200g', 'Cotton', 'Không', 'N/A', 'Nam', 'L', 'Đen', 'Nam', 'Nón', 'Giảm 5%', 'Mới', 1, 'images/clothes/ao_thun_co_tron.jpg', 2),
+('Quần Jeans Rách', 500000.00, '1 năm', '400g', 'Jean', 'Không', 'N/A', 'Nam', '32', 'Xanh', 'Nam', 'Thắt lưng', 'Giảm 15%', 'Mới', 2, 'images/clothes/quan_jeans_rach.jpg', 3),
+('Áo Sơ Mi Trắng', 450000.00, '1 năm', '250g', 'Cotton', 'Không', 'N/A', 'Nam', 'M', 'Trắng', 'Nam', 'Nón', 'Giảm 20%', 'Mới', 2, 'images/clothes/ao_so_mi_trang.jpg', 4),
+('Quần Short Thể Thao', 300000.00, '1 năm', '150g', 'Polyester', 'Không', 'N/A', 'Nam', 'M', 'Đen', 'Nam', 'Nón', 'Giảm 10%', 'Mới', 2, 'images/clothes/quan_short_the_thao.jpg', 5),
+('Áo Hoodie Nỉ', 700000.00, '1 năm', '500g', 'Nỉ', 'Không', 'N/A', 'Nam', 'L', 'Xám', 'Nam', 'Nón', 'Giảm 15%', 'Mới', 3, 'images/clothes/ao_hoodie_ni.jpg', 6),
+('Áo Polo Thể Thao', 350000.00, '6 tháng', '250g', 'Cotton', 'Không', 'N/A', 'Nam', 'M', 'Xanh lá', 'Nam', 'Nón', 'Giảm 5%', 'Mới', 3, 'images/clothes/ao_polo_the_thao.jpg', 7),
+('Quần Baggy Nữ', 400000.00, '1 năm', '300g', 'Cotton', 'Không', 'N/A', 'Nữ', 'M', 'Đen', 'Nữ', 'Thắt lưng', 'Giảm 10%', 'Mới', 3, 'images/clothes/quan_baggy_nu.jpg', 8),
+('Đầm Maxi Hoa', 800000.00, '1 năm', '200g', 'Lụa', 'Không', 'N/A', 'Nữ', 'L', 'Đỏ', 'Nữ', 'Nón', 'Giảm 15%', 'Mới', 4, 'images/clothes/dam_maxi_hoa.jpg', 9),
+('Áo Thun Nữ Cổ V', 300000.00, '1 năm', '150g', 'Cotton', 'Không', 'N/A', 'Nữ', 'S', 'Hồng', 'Nữ', 'Nón', 'Giảm 5%', 'Mới', 4, 'images/clothes/ao_thun_nu_co_v.jpg', 10),
+('Chân Váy Midi', 450000.00, '1 năm', '250g', 'Lụa', 'Không', 'N/A', 'Nữ', 'M', 'Đen', 'Nữ', 'Thắt lưng', 'Giảm 10%', 'Mới', 4, 'images/clothes/chan_vay_midi.jpg', 11),
+('Áo Khoác Dạ Nữ', 900000.00, '1 năm', '800g', 'Dạ', 'Không', 'N/A', 'Nữ', 'M', 'Be', 'Nữ', 'Nón', 'Giảm 20%', 'Mới', 5, 'images/clothes/ao_khoac_da_nu.jpg', 12),
+('Quần Kaki Nữ', 500000.00, '1 năm', '300g', 'Kaki', 'Không', 'N/A', 'Nữ', 'L', 'Xanh', 'Nữ', 'Thắt lưng', 'Giảm 15%', 'Mới', 5, 'images/clothes/quan_kaki_nu.jpg', 13),
+('Áo Sơ Mi Nữ', 350000.00, '1 năm', '200g', 'Cotton', 'Không', 'N/A', 'Nữ', 'M', 'Trắng', 'Nữ', 'Nón', 'Giảm 10%', 'Mới', 5, 'images/clothes/ao_so_mi_nu.jpg', 14),
+('Đầm Dạ Hội', 1200000.00, '1 năm', '600g', 'Lụa', 'Không', 'N/A', 'Nữ', 'L', 'Xanh', 'Nữ', 'Nón', 'Giảm 20%', 'Mới', 6, 'images/clothes/dam_da_hoi.jpg', 15),
+('Áo Len Nam', 650000.00, '6 tháng', '400g', 'Len', 'Không', 'N/A', 'Nam', 'M', 'Xám', 'Nam', 'Nón', 'Giảm 10%', 'Mới', 1, 'images/clothes/ao_len_nam.jpg', 16),
+('Quần Tây Nam', 700000.00, '1 năm', '350g', 'Kaki', 'Không', 'N/A', 'Nam', '32', 'Đen', 'Nam', 'Thắt lưng', 'Giảm 15%', 'Mới', 2, 'images/clothes/quan_tay_nam.jpg', 17),
+('Áo Dài Nữ', 1500000.00, '1 năm', '500g', 'Lụa', 'Không', 'N/A', 'Nữ', 'L', 'Tím', 'Nữ', 'Nón', 'Giảm 10%', 'Mới', 4, 'images/clothes/ao_dai_nu.jpg', 18),
+('Áo Khoác Gió', 800000.00, '1 năm', '450g', 'Polyester', 'Có', 'N/A', 'Nam', 'L', 'Đỏ', 'Nam', 'Nón', 'Giảm 5%', 'Mới', 3, 'images/clothes/ao_khoac_gio.jpg', 19),
+('Quần Jeans Skinny', 550000.00, '1 năm', '350g', 'Jean', 'Không', 'N/A', 'Nữ', 'S', 'Xanh', 'Nữ', 'Thắt lưng', 'Giảm 15%', 'Mới', 5, 'images/clothes/quan_jeans_skinny.jpg', 20),
+('Áo Sơ Mi Caro', 400000.00, '6 tháng', '300g', 'Cotton', 'Không', 'N/A', 'Nam', 'L', 'Đỏ', 'Nam', 'Nón', 'Giảm 10%', 'Mới', 2, 'images/clothes/ao_so_mi_caro.jpg', 21),
+('Quần Jogger Thể Thao', 450000.00, '1 năm', '400g', 'Polyester', 'Không', 'N/A', 'Nam', 'L', 'Xanh', 'Nam', 'Nón', 'Giảm 20%', 'Mới', 3, 'images/clothes/quan_jogger_the_thao.jpg', 22);
+-- thêm 10 sản phẩm nữa
+INSERT INTO sanpham (tensp, gia, baohanh, trongluong, chatlieu, chongnuoc, nangluong, loaibh, kichthuoc, mau, danhcho, phukien, khuyenmai, tinhtrang, madm, anhchinh, masp) VALUES
+('Áo Khoác Bomber', 750000.00, '6 tháng', '450g', 'Nylon', 'Có', 'N/A', 'Nam', 'M', 'Đen', 'Nam', 'Nón', 'Giảm 10%', 'Mới', 1, 'images/clothes/ao_khoac_bomber.jpg', 23),
+('Quần Chạy Bộ', 350000.00, '1 năm', '200g', 'Chất liệu thể thao', 'Không', 'N/A', 'Nam', 'L', 'Xanh biển', 'Nam', 'Nón', 'Giảm 15%', 'Mới', 1, 'images/clothes/quan_chay_bo.jpg', 24),
+('Áo Sơ Mi Kẻ Sọc', 500000.00, '1 năm', '250g', 'Cotton', 'Không', 'N/A', 'Nam', 'M', 'Xanh', 'Nam', 'Nón', 'Giảm 20%', 'Mới', 2, 'images/clothes/ao_so_mi_ke_soc.jpg', 25),
+('Quần Legging Nữ', 300000.00, '6 tháng', '150g', 'Polyester', 'Không', 'N/A', 'Nữ', 'M', 'Đen', 'Nữ', 'Nón', 'Giảm 5%', 'Mới', 4, 'images/clothes/quan_legging_nu.jpg', 26),
+('Áo T-Shirt Nữ', 200000.00, '1 năm', '100g', 'Cotton', 'Không', 'N/A', 'Nữ', 'S', 'Hồng', 'Nữ', 'Nón', 'Giảm 10%', 'Mới', 4, 'images/clothes/ao_tshirt_nu.jpg', 27),
+('Giày Thể Thao Nam', 1200000.00, '1 năm', '800g', 'Da tổng hợp', 'Không', 'N/A', 'Nam', '41', 'Trắng', 'Nam', 'Nón', 'Giảm 15%', 'Mới', 3, 'images/clothes/giay_the_thao_nam.jpg', 28),
+('Giày Sandal Nữ', 800000.00, '1 năm', '600g', 'Da', 'Không', 'N/A', 'Nữ', '38', 'Đen', 'Nữ', 'Nón', 'Giảm 10%', 'Mới', 5, 'images/clothes/giay_sandal_nu.jpg', 29),
+('Áo Khoác Mùa Đông', 1200000.00, '1 năm', '700g', 'Vải giữ nhiệt', 'Có', 'N/A', 'Nam', 'L', 'Xám', 'Nam', 'Nón', 'Giảm 20%', 'Mới', 6, 'images/clothes/ao_khoac_mua_dong.jpg', 30),
+('Quần Tập Gym', 400000.00, '1 năm', '300g', 'Chất liệu thể thao', 'Không', 'N/A', 'Nữ', 'M', 'Đen', 'Nữ', 'Nón', 'Giảm 15%', 'Mới', 5, 'images/clothes/quan_tap_gym.jpg', 31),
+('Đầm Maxi Trễ Vai', 900000.00, '1 năm', '400g', 'Lụa', 'Không', 'N/A', 'Nữ', 'L', 'Xanh', 'Nữ', 'Nón', 'Giảm 10%', 'Mới', 4, 'images/clothes/dam_maxi_tre_vai.jpg', 32);
+
 
 
 -- Thêm dữ liệu mẫu cho bảng giao dịch
@@ -171,3 +196,6 @@ INSERT INTO sanphamyeuthich (user_id, masp) VALUES
 (3, 4),
 (4, 2),
 (5, 5);
+
+
+
