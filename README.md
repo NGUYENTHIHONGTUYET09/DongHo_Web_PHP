@@ -1,16 +1,25 @@
 [PHP][Product Website] First time php<br>
 
 #Screenshots
-- Homepage
-<img src="https://github.com/duong97/WebBanHang_PHP_Thuan/blob/master/screenshots/homepage.JPG">
 
-<img src="https://github.com/duong97/WebBanHang_PHP_Thuan/blob/master/screenshots/homepage2.JPG">
 
-- Detail
-<img src="https://github.com/duong97/WebBanHang_PHP_Thuan/blob/master/screenshots/detail.JPG">
 
-- Cart
-<img src="https://github.com/duong97/WebBanHang_PHP_Thuan/blob/master/screenshots/cart.JPG">
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b1.jpg">
 
-- Payment
-<img src="https://github.com/duong97/WebBanHang_PHP_Thuan/blob/master/screenshots/pay.JPG">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b2.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b3.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b4.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b5.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b6.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b7.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b8.jpg">
+
+<img src="https://github.com/NGUYENTHIHONGTUYET09/DongHo_Web_PHP/blob/master/screenshots/b9.jpg">
+ 
