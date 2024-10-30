@@ -104,10 +104,13 @@ if (isset($_SESSION['user'])) {
 
 <body>
     <header id='header'>
-        <a href="index.php"><img src="images/logo5.jpg">
+        <a href="index.php"><img src="images/logo5.png"><br>
             <h2 class="logo"> 💎Fashion Katy </h2>
         </a>
         <ul class="header-menu">
+
+     
+
             <?php 
       if($_SESSION['rights'] == "default"){ ?>
             <li><a onclick='ajax_dangnhap()' id="s-s" data-stt='nosignin'>Đăng nhập</a>
